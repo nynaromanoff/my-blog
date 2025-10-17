@@ -12,7 +12,7 @@ export function Header() {
           'md: text-5xl md: py-11',
           'lg: text-7 xl lg: py-12',
           )}>
-        <Link href="#">Bloggs</Link>
+        <Link href='/'>Bloggs</Link>
       </h1>
     </header>
   );
