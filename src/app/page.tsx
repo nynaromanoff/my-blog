@@ -1,8 +1,6 @@
 import { Container } from "@/components/Container/Container";
 import { Header } from "@/components/Header";
-import { PostCoverImage } from "@/components/PostCoverImage";
 import PostFeatured from "@/components/PostFeatured";
-import { PostHeading } from "@/components/PostHeading";
 import { PostsList } from "@/components/PostsList";
 import { SpinLoader } from "@/components/SpinLoader";
 import { Suspense } from "react";
