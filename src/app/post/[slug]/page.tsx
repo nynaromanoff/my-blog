@@ -22,7 +22,6 @@ export async function genereteMetaData({
 
 export default async function PostSlugPage({ params }: PostSlugPageProps) {
   const { slug } = await params;
-  const post = await findPostBySlugCached(slug);
 
   return (
     <Suspense fallback={<SpinLoader className='min-h-20 mb-16' />}>

@@ -10,7 +10,6 @@ export default function HomePage() {
         <PostFeatured />
         <PostsList />
       </Suspense>
- 
   </>
   )
 }
