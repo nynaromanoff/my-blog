@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "2355b775-8011-4b65-ab50-db57b00bd386",
+  "id": "cc8995c2-82ed-4d89-8ef8-b0a43bbdf670",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "posts": {
@@ -70,8 +70,8 @@
           "notNull": true,
           "autoincrement": false
         },
-        "uptaded_at": {
-          "name": "uptaded_at",
+        "updated_at": {
+          "name": "updated_at",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
