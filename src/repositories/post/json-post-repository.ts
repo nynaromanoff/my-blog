@@ -1,6 +1,6 @@
 import { resolve } from "path";
-import { PostModel } from "../models/post/post-model";
-import { PostRepository } from "./PostRepository";
+import { PostModel } from "../../models/post/post-model";
+import { PostRepository } from "../PostRepository";
 import { readFile } from "fs/promises";
 
 const ROOT_DIR = process.cwd();
@@ -45,9 +45,9 @@ export class JsonPostRepository implements PostRepository {
 
     return post;
   }
-  
-  async findBySlug(slug: string): Promise<PostModel> {
-      await this.simulateWait();
+
+  async findBySlugPublic(slug: string): Promise<PostModel> {
+    await this.simulateWait();
 
     const posts = await this.findAllPublic();
     const post = posts.find((post) => post.slug === slug);
@@ -60,11 +60,9 @@ export class JsonPostRepository implements PostRepository {
   async findAll(): Promise<PostModel[]> {
     await this.simulateWait();
 
-    console.log('\n', 'findAll', '\n');
+    console.log("\n", "findAll", "\n");
 
     const posts = await this.readFromDisk();
     return posts;
   }
 }
-
-export const postRepository: PostRepository = new JsonPostRepository();
