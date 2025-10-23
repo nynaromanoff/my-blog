@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { PostModel } from "../../models/post/post-model";
-import { PostRepository } from "../PostRepository";
+import { PostRepository } from "./PostRepository";
 import { readFile } from "fs/promises";
 
 const ROOT_DIR = process.cwd();
@@ -59,8 +59,6 @@ export class JsonPostRepository implements PostRepository {
 
   async findAll(): Promise<PostModel[]> {
     await this.simulateWait();
-
-    console.log("\n", "findAll", "\n");
 
     const posts = await this.readFromDisk();
     return posts;
