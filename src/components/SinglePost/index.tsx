@@ -1,4 +1,4 @@
-import { findPostBySlugCached } from '@/lib/post/queries';
+import { findPublicPostByCached } from '@/lib/post/public-queries';
 import Image from 'next/image';
 import { PostHeading } from '../PostHeading';
 import { PostDate } from '../PostDate';
@@ -9,7 +9,7 @@ type SinglePostProps = {
 };
 
 export async function SinglePost({ slug }: SinglePostProps) {
-  const post = await findPostBySlugCached(slug);
+  const post = await findPublicPostByCached(slug);
 
   return (
     <article>
@@ -24,9 +24,9 @@ export async function SinglePost({ slug }: SinglePostProps) {
           {post.title}
         </PostHeading>
 
-        <p>{post.author} | <PostDate dateTime={post.createdAt}/></p>
+        <p>{post.author} | <PostDate dateTime={post.createdAt} /></p>
       </header>
-      <p className= 'text-slate-600 mb-4'>{post.excerpt}</p>
+      <p className='text-slate-600 mb-4'>{post.excerpt}</p>
 
       <SafeMarkdown markdown={post.content} />
     </article>
