@@ -1,7 +1,7 @@
 import { findAllPostAdmin } from "@/lib/post/admin-queries";
 import clsx from "clsx";
-import { Trash2 } from "lucide-react";
 import Link from "next/link";
+import { DeletePostButton } from "../admin/DeletePostButton";
 
 export default async function PostsListAdmin() {
   const posts = await findAllPostAdmin();
@@ -16,15 +16,7 @@ export default async function PostsListAdmin() {
             <Link href={`/admin/post/${post.id}`}>{post.title}</Link>
 
             {!post.published && (<span className='text-xs text-slate-600 italic' >(Não Publicado)</span>)}
-
-            <button className={clsx(
-              'text-red-800 cursor-pointer transition',
-              '[&_svg]:w-4 [&_svg]:h-4',
-              'hover:scale-120'
-            )}
-              title={`Apagar post: ${post.title}`}>
-              <Trash2 size={16}/>
-            </button>
+            <DeletePostButton id={post.id} title={post.title}/>
           </div>
         );
       })}
