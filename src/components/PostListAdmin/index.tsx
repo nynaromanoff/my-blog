@@ -2,6 +2,7 @@ import { findAllPostAdmin } from "@/lib/post/admin-queries";
 import clsx from "clsx";
 import Link from "next/link";
 import { DeletePostButton } from "../admin/DeletePostButton";
+import { Dialog } from "../admin/Dialog";
 
 export default async function PostsListAdmin() {
   const posts = await findAllPostAdmin();
@@ -16,7 +17,7 @@ export default async function PostsListAdmin() {
             <Link href={`/admin/post/${post.id}`}>{post.title}</Link>
 
             {!post.published && (<span className='text-xs text-slate-600 italic' >(Não Publicado)</span>)}
-            <DeletePostButton id={post.id} title={post.title}/>
+            <DeletePostButton id={post.id} title={post.title} />
           </div>
         );
       })}
